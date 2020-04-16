@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <string>
 
-int const LEN = 6;     //фактическая длина строки = LEN - 1 (последний символ - NULL)
+int const LEN = 25;     //фактическая длина строки = LEN - 1 (последний символ - NULL)
 
 using namespace std;
 int compare(char LINE1[LEN], char LINE2[LEN], int n);
@@ -25,6 +25,7 @@ int main() {
             EnterIN(LINE2);
             cout << LINE1 << endl;
             cout << LINE2 << endl;
+			cout << compare(LINE1, LINE2, n) << endl;
         }
         if (number == 2) {}
         if (number == 3) {}
@@ -35,6 +36,10 @@ int main() {
 }
 
 int compare(char LINE1[LEN], char LINE2[LEN], int n) {
+    for (int i = 0; i < n; i++) {
+        if (LINE1[i] > LINE2[i]) return 1;
+        if (LINE1[i] < LINE2[i]) return -1;
+    }
     return 0;
 }
 
