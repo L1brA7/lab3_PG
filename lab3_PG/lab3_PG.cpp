@@ -1,13 +1,11 @@
 ﻿#include <iostream>
 #include <string>
 
-
-int const LINES_Q = 2; //количество строк
-int const LEN = 6; //фактическая длина строки = LEN - 1 (последний символ - NULL)
+int const LEN = 6;     //фактическая длина строки = LEN - 1 (последний символ - NULL)
 
 using namespace std;
-int compare(char LINES, int n);
-void create(char LINES[LINES_Q][LEN]);
+int compare(char LINE1[LEN], char LINE2[LEN], int n);
+void EnterIN(char LINE[LEN]);
 
 int main() {
     int number;
@@ -17,17 +15,16 @@ int main() {
         if (number == 1) {
 
             int n;
-            //cout << "Enter n less than " + to_string(LEN) + " - ";
-			//cin >> n;
-
+            cout << "Enter n less than " + to_string(LEN) + " - ";
+			cin >> n;
 			cin.clear();
 			cin.ignore();
 
-			char LINES[LINES_Q][LEN];
-			create(LINES);
-			cout << LINES[0] << endl;
-			cout << LINES[1] << endl;
-
+            char LINE1[LEN], LINE2[LEN];
+            EnterIN(LINE1);
+            EnterIN(LINE2);
+            cout << LINE1 << endl;
+            cout << LINE2 << endl;
         }
         if (number == 2) {}
         if (number == 3) {}
@@ -37,26 +34,19 @@ int main() {
     return 0;
 }
 
-int compare(char LINES, int n) {
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < n; j++) {
-            //if ()
-        }
-    }
+int compare(char LINE1[LEN], char LINE2[LEN], int n) {
     return 0;
 }
 
-void create(char LINES[LINES_Q][LEN]) {
-	for (int i = 0; i < LINES_Q; i++) {
-		cout << "Enter less than " + to_string(LEN) + " symbols" + ":" + "\n";
-		cin.getline(LINES[i], 255);
-		int j = 0;
-		while (LINES[i][j] != NULL) j++;
-		while (j >= LEN) {
-			cout << "ERROR.Enter LESS than " + to_string(LEN) + " symbols" + ":";
-			cin.getline(LINES[i], 255);
-			j = 0;
-			while (LINES[i][j] != NULL) j++;
-		}
+void EnterIN(char LINE[LEN]) {
+	cout << "Enter less than " + to_string(LEN) + " symbols" + ":";
+	cin.getline(LINE, 255);
+	int j = 0;
+	while (LINE[j] != NULL) j++;
+	while (j >= LEN) {
+		cout << "ERROR.Enter LESS than " + to_string(LEN) + " symbols" + ":";
+		cin.getline(LINE, 255);
+		j = 0;
+		while (LINE[j] != NULL) j++;
 	}
 }
